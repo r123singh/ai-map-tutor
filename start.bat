@@ -1,0 +1,9 @@
+@echo off
+echo 🗺️ Starting AI Map Tutor...
+echo.
+echo Installing dependencies...
+call npm install
+echo.
+echo Starting server...
+call npm start
+pause

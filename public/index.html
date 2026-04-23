@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>AI Map Tutor - Learn Geography with AI</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1><i class="fas fa-globe-americas"></i> AI Map Tutor</h1>
+      <p>Learn geography through interactive AI-powered conversations</p>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-container">
+    <!-- Chat Panel -->
+    <div class="chat-panel">
+      <div class="chat-header">
+        <h3><i class="fas fa-comments"></i> Chat with AI</h3>
+        <div class="chat-controls">
+          <button id="quizBtn" class="btn btn-secondary">
+            <i class="fas fa-question-circle"></i> Quiz Mode
+          </button>
+          <button id="clearBtn" class="btn btn-outline">
+            <i class="fas fa-trash"></i> Clear
+          </button>
+        </div>
+      </div>
+      
+      <div class="chat-messages" id="chatMessages">
+        <div class="message ai-message">
+          <div class="message-content">
+            <i class="fas fa-robot"></i>
+            <p>Hello! I'm your AI geography tutor. Try asking me things like:</p>
+            <ul>
+              <li>"Show me Australia"</li>
+              <li>"Mark the Great Barrier Reef"</li>
+              <li>"Highlight the Himalayas"</li>
+              <li>"Display France on the map"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-input-container">
+        <div class="input-group">
+          <input type="text" id="chatInput" placeholder="Ask me about any country, landmark, or geographical feature..." />
+          <button id="sendBtn" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div class="suggestions" id="suggestions">
+          <button class="suggestion-btn" data-query="Show me Australia">Australia</button>
+          <button class="suggestion-btn" data-query="Mark the Great Barrier Reef">Great Barrier Reef</button>
+          <button class="suggestion-btn" data-query="Highlight the Himalayas">Himalayas</button>
+          <button class="suggestion-btn" data-query="Display France">France</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Panel -->
+    <div class="map-panel">
+      <div class="map-header">
+        <h3><i class="fas fa-map"></i> Interactive Map</h3>
+        <div class="map-controls">
+          <button id="resetMapBtn" class="btn btn-outline">
+            <i class="fas fa-home"></i> Reset View
+          </button>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- Quiz Modal -->
+  <div id="quizModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-question-circle"></i> Geography Quiz</h3>
+        <button id="closeQuizBtn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div id="quizContent">
+          <p id="quizQuestion"></p>
+          <p id="quizHint" class="hint"></p>
+          <div class="quiz-actions">
+            <button id="startQuizBtn" class="btn btn-primary">Start Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>AI is thinking...</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
